@@ -1,0 +1,2 @@
+1) Handle the $HOME variable in the environment variable
+2) Handle errors everywhere

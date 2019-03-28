@@ -1,0 +1,54 @@
+{
+  // Infrastructure Environment for which to enable this tool
+
+  InfrastructureEnvironment: "testing"
+
+  /*
+    Database config variables
+    --------------------------------
+    DefaultDatabaseName: DB name in which all the history of your infra managements are saved
+    DatabaseEngine: DATABASE Engine to be used for saving the data (Choices: ["mongo"])
+    DatabaseConfig: Maintain a mapping of database config (HOST, PORT, USERNAME, PASSWORD)
+  */
+
+  DatabaseEngine: "mongo"
+  DefaultDatabaseName: "infrastructure"
+  DatabaseConfig: {
+    HOST: "localhost"
+    PORT: "27017"
+    USERNAME: ""
+    PASSWORD: ""
+  }
+
+  /*
+    Configurations Repository Level
+    EmptyTemplates: Empty templates that will be created for the microservice
+    IncludeTemplateVariableFile: Flag to created template variable file in the repository
+    TemplateVariableFileName: Name of the file for the template variable to create with
+  */
+
+  EmptyTemplates: ["deployment.yml", "svc.yml", "rbac.yml", "ingress.yml", "configmap.yml", "secret.yml", "claims.yml", "volumes.yml"]
+  IncludeTemplateVariableFile: true
+  TemplateVariableFileName: "template_variables.json"
+
+  /*
+    Cloud Configurations
+    CloudProvider: All the cloud providers. Currently supports "aws", TODO: "gcp"
+  */
+
+  CloudProvider: "aws"
+  AwsEcrPath: ""
+
+  /*
+    Container Image hosting provider
+    ImageRepositoryProvider: Provider for image hosting services. Currently supports "aws", TODO: "dockerhub"
+  */
+
+  ImageRepositoryProvider: "aws"
+  LoadAwsCredentialsFromConfig: true
+  LoadAwsCredentialsFromEnv: false
+
+  /*
+    Version Control configurations
+  */
+}
